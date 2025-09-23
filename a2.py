@@ -28,7 +28,7 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
 
         # 1) if we reached the end of the pattern but not source
         if pind==len(pattern):
-            print("Reached end of pattern but not source")
+            #print("Reached end of pattern but not source")
             return None
 
         # 2) if the current thing in the pattern is a %
@@ -36,14 +36,28 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # If you get stuck on this one, we encourage you to attempt the other conditions
         #   and come back to this one afterwards
         elif pattern[pind]=="%":
-            pind
+            #Two sits- % is last or not last
+            if pind==len(pattern) -1 :
+                combined= " ".join(source[sind:]) 
+                result.append(combined)
+                #print(result)
+                return result
+            else:
+                pind+=1
+                slocation=sind
+                while pattern[pind]!= source[sind]:
+                    sind+=1
+                    if sind==len(source):
+                        return None
+                result.append(" ".join(source[slocation:sind]))
+
         # 3) if we reached the end of the source but not the pattern
         elif sind==len(source):
-            print("Reached end of source but not pattern")
+            #print("Reached end of source but not pattern")
             return None
         # 4) if the current thing in the pattern is an _
         elif pattern[pind]== "_":
-            print(pattern[pind], source[sind])
+            #print(pattern[pind], source[sind])
             result.append(source[sind])
             pind+=1
             sind+=1
@@ -59,9 +73,9 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
 
 
         else:
-            print("no match")
+            #print("no match")
             return None
-    print("successful match")
+    #print("successful match")
     return result
 
 

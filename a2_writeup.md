@@ -12,9 +12,9 @@ This assignment is about learning and applying the while loop and iterating thro
 
 ## Reflection Questions
 1. What was difficult for you while completing the match function?
-
+Understanding the conditionals for siuations like when you get a % in the middle of pattern
 
 
 2. Explain how you could use the match function for extracting information from a movie database.
-
+We can assign the X Y and Z to a key word like an actor,date or movie. The _ and % are the user inputs that are not an exact match to the key words ( filler words like "so" that are not important for the overall question being asked.b
 
